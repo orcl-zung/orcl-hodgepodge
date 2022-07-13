@@ -21,6 +21,7 @@
 
     <modules>
         <module>orcl-hodgepodge-redis</module>
+        <module>orcl-hodegpodge-thread</module>
     </modules>
 
     <dependencyManagement>
