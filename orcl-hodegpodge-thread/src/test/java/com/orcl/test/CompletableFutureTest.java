@@ -24,16 +24,16 @@ public class CompletableFutureTest {
     public void testCallBack() throws InterruptedException, ExecutionException {
         // 提交一个任务，返回CompletableFuture（注意，并不是把CompletableFuture提交到线程池，它没有实现Runnable）
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> {
-                    System.out.println("=============>异步线程开始...");
-                    System.out.println("=============>异步线程为：" + Thread.currentThread().getName());
-                    try {
-                        TimeUnit.SECONDS.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("=============>异步线程结束...");
-                    return "supplierResult";
-                })
+            System.out.println("=============>异步线程开始...");
+            System.out.println("=============>异步线程为：" + Thread.currentThread().getName());
+            try {
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("=============>异步线程结束...");
+            return "supplierResult";
+        })
                 // 异步回调：上面的Supplier#get()返回结果后，异步线程会回调BiConsumer#accept()
                 .whenComplete((s, throwable) -> {
                     System.out.println("=============>异步任务结束回调...");
@@ -44,6 +44,49 @@ public class CompletableFutureTest {
         System.out.println("main结束");
         TimeUnit.SECONDS.sleep(15);
 
+    }
+
+    @Test
+    public void testCallBack1() throws InterruptedException {
+        CompletableFuture<String> completableFuture1 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("==========>异步线程开始。。。");
+            try {
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("==========>completableFuture1任务结束。。。");
+            System.out.println("==========>执行completableFuture1的线程为：" + Thread.currentThread().getName());
+            return "supplierResult";
+        });
+        System.out.println("completableFuture1：" + completableFuture1);
+
+        CompletableFuture<String> completableFuture2 = completableFuture1.thenApply(s -> {
+            try {
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("==========>completableFuture2任务结束 result = " + s);
+            System.out.println("==========>执行completableFuture2的线程为：" + Thread.currentThread().getName());
+            return s;
+        });
+        System.out.println("completableFuture2：" + completableFuture2);
+
+        CompletableFuture<String> completableFuture3 = completableFuture2.thenApply(s -> {
+            try {
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("==========>completableFuture3任务结束 result = " + s);
+            System.out.println("==========>执行completableFuture3的线程为：" + Thread.currentThread().getName());
+            return s;
+        });
+        System.out.println("completableFuture3：" + completableFuture3);
+
+        System.out.println("主线程结束");
+        TimeUnit.SECONDS.sleep(40);
 
     }
 
