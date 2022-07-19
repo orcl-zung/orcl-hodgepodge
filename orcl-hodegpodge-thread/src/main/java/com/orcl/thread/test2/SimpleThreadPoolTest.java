@@ -13,7 +13,7 @@ public class SimpleThreadPoolTest {
 
     public static void main(String[] args) {
 
-        SimpleThreadPool simpleThreadPool = new SimpleThreadPool(2, new ArrayBlockingQueue<Runnable>(2));
+        SimpleThreadPool simpleThreadPool = new SimpleThreadPool(2, new ArrayBlockingQueue<>(2));
 
         simpleThreadPool.execute(() -> {
             System.out.println("第1个任务开始");

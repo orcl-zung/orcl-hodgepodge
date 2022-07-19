@@ -22,7 +22,10 @@ public class SimpleThreadPool {
      */
     List<Worker> workers = new ArrayList<>();
 
-    public SimpleThreadPool(int poolSize, BlockingQueue<Runnable> workQueue) {
+    public SimpleThreadPool() {
+    }
+
+    public SimpleThreadPool(Integer poolSize, BlockingQueue<Runnable> workQueue) {
         this.workQueue = workQueue;
         // 创建线程，执行任务，并加入线程池
         for (int i = 0; i < poolSize; i++) {
@@ -49,7 +52,7 @@ public class SimpleThreadPool {
     class Worker extends Thread {
         @Override
         public void run() {
-            // 循环后去任务，如果任务为空则阻塞等待
+            // 循环后取任务，如果任务为空则阻塞等待
             while (true) {
                 try {
                     Runnable task = workQueue.take();
