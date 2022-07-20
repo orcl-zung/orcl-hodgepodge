@@ -1,11 +1,14 @@
 package com.orcl.test.jpa;
 
+import com.orcl.reflection.anno.Table;
+
 /**
  * @description:
  * @author: orcl
  * @since: 2022-07-20 22:12
  * @history: 2022-07-20 22:12 created by orcl
  */
+@Table("t_jpa_user")
 public class User {
 
     private String name;

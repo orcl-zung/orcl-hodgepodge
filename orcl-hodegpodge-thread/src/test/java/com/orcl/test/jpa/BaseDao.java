@@ -1,5 +1,6 @@
 package com.orcl.test.jpa;
 
+import com.orcl.reflection.anno.Table;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -45,7 +46,7 @@ public class BaseDao<T> {
         // 拼接 sql 语句，表名直接用 POJO 的类名，所以创建表时，请注意写成 User ，而不是 t_user
         StringBuilder sql = new StringBuilder()
                 .append("insert into ")
-                .append(beanClass.getSimpleName())
+                .append(beanClass.getAnnotation(Table.class).value())
                 .append(" values(");
         for (int i = 0; i < declaredFields.length; i++) {
             sql.append("?");
