@@ -21,9 +21,9 @@ public class BaseDao<T> {
     static {
         dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/orcl_hodgepodge");
         dataSource.setUsername("root");
-        dataSource.setPassword("12345678");
+        dataSource.setPassword("123456");
     }
 
     private JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -38,10 +38,11 @@ public class BaseDao<T> {
         beanClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
-    public void add(T bean) {
-        // 得到 User  对象的所有字段
+    public int add(T bean) {
+        // 得到 User 对象的所有字段
         Field[] declaredFields = beanClass.getDeclaredFields();
 
+        // 拼接 sql 语句，表名直接用 POJO 的类名，所以创建表时，请注意写成 User ，而不是 t_user
         StringBuilder sql = new StringBuilder()
                 .append("insert into ")
                 .append(beanClass.getSimpleName())
@@ -54,8 +55,8 @@ public class BaseDao<T> {
         }
         sql.append(")");
 
+        // 获得 bean 字段的值（要插入的记录）
         List<Object> paramList = new ArrayList<>();
-
         try {
             for (Field declaredField : declaredFields) {
                 declaredField.setAccessible(true);
@@ -68,8 +69,10 @@ public class BaseDao<T> {
         int size = paramList.size();
         Object[] params = paramList.toArray(new Object[size]);
 
+        // 传入sql语句模板和模板所需的参数，插入User
         int num = jdbcTemplate.update(sql.toString(), params);
         System.out.println(num);
+        return num;
     }
 
 }
