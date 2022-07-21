@@ -3,6 +3,7 @@ package com.orcl.test.jpa;
 import com.orcl.reflection.anno.Table;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -39,6 +40,7 @@ public class BaseDao<T> {
         beanClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
+    @Transactional
     public int add(T bean) {
         // 得到 User 对象的所有字段
         Field[] declaredFields = beanClass.getDeclaredFields();
