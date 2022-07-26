@@ -1,13 +1,14 @@
 package com.orcl.hashcode;
 
+import com.alibaba.fastjson.JSON;
+import com.orcl.hashcode.hash.Disturb;
 import com.orcl.hashcode.hash.FileUtil;
 import com.orcl.hashcode.hash.HashCode;
 import com.orcl.hashcode.hash.RateInfo;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @description:
@@ -55,6 +56,58 @@ public class ApiTest {
         String str = "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 103910, 34, 0, 18, 0, 0, 7, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0";
         String[] split = str.split(",");
         System.out.println(split.length);
+    }
+
+    @Test
+    public void test_128hash() {
+        // 初始化 7 个字符串列表
+        List<String> strList = new ArrayList<String>() {{
+            add("orcl");
+            add("kobe");
+            add("LeBron");
+            add("bryant");
+            add("hardon");
+            add("curry");
+            add("小傅哥");
+            add("钟某");
+        }};
+
+        // 存放的数组，类比为 hash 表
+        String[] tab = new String[8];
+
+        // 循环存放
+        for (String key : strList) {
+            // 计算索引
+            int idx = key.hashCode() & (tab.length - 1);
+            System.out.printf("key值=%s idx=%d%n", key, idx);
+            System.out.println();
+            if (null == tab[idx]) {
+                tab[idx] = key;
+                continue;
+            }
+            tab[idx] = tab[idx] + "->" + key;
+        }
+        System.out.println(JSON.toJSONString(tab));
+
+    }
+
+    @Test
+    public void test_disturb() {
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (String word : words) {
+            // 使用扰动函数
+//            int idx = Disturb.disturbHashIdx(word, 128);
+
+            // 没有使用扰动该函数
+            int idx = Disturb.hashInx(word, 128);
+            if (map.containsKey(idx)) {
+                Integer integer = map.get(idx);
+                map.put(idx, ++integer);
+            } else {
+                map.put(idx, 1);
+            }
+        }
+        System.out.println(map.values());
     }
 
 }
