@@ -23,6 +23,7 @@
         <module>orcl-hodgepodge-redis</module>
         <module>orcl-hodegpodge-thread</module>
         <module>orcl-hashcode</module>
+        <module>orcl-hodgepodge-mq</module>
     </modules>
 
     <dependencyManagement>
