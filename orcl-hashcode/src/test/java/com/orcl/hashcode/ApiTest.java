@@ -96,10 +96,10 @@ public class ApiTest {
         Map<Integer, Integer> map = new HashMap<>(16);
         for (String word : words) {
             // 使用扰动函数
-//            int idx = Disturb.disturbHashIdx(word, 128);
+            int idx = Disturb.disturbHashIdx(word, 128);
 
             // 没有使用扰动该函数
-            int idx = Disturb.hashInx(word, 128);
+//            int idx = Disturb.hashInx(word, 128);
             if (map.containsKey(idx)) {
                 Integer integer = map.get(idx);
                 map.put(idx, ++integer);
