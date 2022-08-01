@@ -24,6 +24,7 @@
         <module>orcl-hodegpodge-thread</module>
         <module>orcl-hashcode</module>
         <module>orcl-hodgepodge-mq</module>
+        <module>orcl-hodgepodge-jvm</module>
     </modules>
 
     <dependencyManagement>
