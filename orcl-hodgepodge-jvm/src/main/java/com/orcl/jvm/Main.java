@@ -1,5 +1,9 @@
 package com.orcl.jvm;
 
+import com.orcl.jvm.classpath.Classpath;
+
+import java.util.Arrays;
+
 /**
  * @description:
  * @author: orcl
@@ -22,7 +26,24 @@ public class Main {
     }
 
     private static void startJVM(Cmd cmd) {
-        System.out.printf("classpath:%s class:%s args:%s\n", cmd.classpath, cmd.getMainClass(), cmd.getAppArgs());
+        Classpath cp = new Classpath(cmd.jre, cmd.classpath);
+        System.out.printf("classpath:%s class:%s args:%s\n", cp, cmd.getMainClass(), cmd.getAppArgs());
+
+        // 获取 className
+        String className = cmd.getMainClass().replace(".", "/");
+        try {
+            byte[] classData = cp.readClass(className);
+
+            System.out.println(Arrays.toString(classData));
+
+            System.out.println("classData: ");
+            for (byte b : classData) {
+                System.out.println(String.format("%02x", b & 0xff) + " ");
+            }
+        } catch (Exception e) {
+            System.out.println("Could not find or load main class " + cmd.getMainClass());
+            e.printStackTrace();
+        }
     }
 
 }

@@ -22,6 +22,9 @@ public class Cmd {
     @Parameter(names = {"-cp", "-classpath"}, description = "classpath", order = 1)
     String classpath;
 
+    @Parameter(names = "-Xjre", description = "path to jre", order = 4)
+    String jre;
+
     @Parameter(description = "main class and args")
     List<String> mainClassAndArgs;
 
