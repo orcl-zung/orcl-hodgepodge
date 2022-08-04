@@ -1,4 +1,4 @@
-package com.orcl.redis.cache.constant;
+package com.orcl.demo.redis.cache.constant;
 
 /**
  * @description:

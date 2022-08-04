@@ -1,7 +1,7 @@
-package com.orcl.redis.cache.config;
+package com.orcl.demo.redis.cache.config;
 
-import com.orcl.redis.cache.service.DistService;
-import com.orcl.redis.cache.service.RedisService;
+import com.orcl.demo.redis.cache.service.DistService;
+import com.orcl.demo.redis.cache.service.RedisService;
 import net.sf.ehcache.CacheManager;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;

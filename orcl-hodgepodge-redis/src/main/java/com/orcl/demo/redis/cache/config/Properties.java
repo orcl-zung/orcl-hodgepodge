@@ -1,13 +1,12 @@
-package com.orcl.redis.cache.config;
+package com.orcl.demo.redis.cache.config;
 
 import com.google.common.collect.Maps;
+import com.orcl.demo.redis.cache.constant.CacheConstant;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
-
-import static com.orcl.redis.cache.constant.CacheConstant.*;
 
 /**
  * @description:
@@ -22,9 +21,9 @@ public class Properties {
     private static final Map<String, Duration> INIT_CACHES = Maps.newHashMap();
 
     public static Map<String, Duration> getInitCaches() {
-        INIT_CACHES.put(HUAWEI_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
-        INIT_CACHES.put(OPPO_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
-        INIT_CACHES.put(VIVO_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
+        INIT_CACHES.put(CacheConstant.HUAWEI_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
+        INIT_CACHES.put(CacheConstant.OPPO_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
+        INIT_CACHES.put(CacheConstant.VIVO_TOKEN_KEY, Duration.of(1L, ChronoUnit.HOURS));
         return INIT_CACHES;
     }
 }

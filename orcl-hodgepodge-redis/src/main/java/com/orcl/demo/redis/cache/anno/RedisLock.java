@@ -1,4 +1,4 @@
-package com.orcl.redis.cache.anno;
+package com.orcl.demo.redis.cache.anno;
 
 import java.lang.annotation.*;
 

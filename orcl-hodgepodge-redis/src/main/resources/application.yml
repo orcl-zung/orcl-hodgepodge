@@ -1,0 +1,14 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: orcl-hodgepodge-redis
+  redis:
+    host: 127.0.0.1
+    port: 49153
+    password: redispw
+
+  lock:
+    expireAfter: 200
+    enabled: true

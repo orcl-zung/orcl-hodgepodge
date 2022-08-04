@@ -1,4 +1,4 @@
-package com.orcl.redis.cache.service;
+package com.orcl.demo.redis.cache.service;
 
 import org.springframework.data.redis.core.BoundSetOperations;
 import org.springframework.data.redis.core.HashOperations;

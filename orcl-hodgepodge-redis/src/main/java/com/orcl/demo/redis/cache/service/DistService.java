@@ -1,6 +1,6 @@
-package com.orcl.redis.cache.service;
+package com.orcl.demo.redis.cache.service;
 
-import com.orcl.redis.cache.entity.DictData;
+import com.orcl.demo.redis.cache.entity.DictData;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
@@ -8,7 +8,7 @@ import net.sf.ehcache.Element;
 import java.util.List;
 import java.util.Objects;
 
-import static com.orcl.redis.cache.constant.CacheConstant.SYS_DICT_KEY;
+import static com.orcl.demo.redis.cache.constant.CacheConstant.SYS_DICT_KEY;
 
 /**
  * @description:

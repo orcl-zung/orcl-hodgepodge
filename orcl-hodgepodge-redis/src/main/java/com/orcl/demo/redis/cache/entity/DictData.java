@@ -1,4 +1,4 @@
-package com.orcl.redis.cache.entity;
+package com.orcl.demo.redis.cache.entity;
 
 import lombok.Getter;
 import lombok.Setter;

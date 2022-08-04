@@ -1,4 +1,4 @@
-package com.orcl.redis.cache.config;
+package com.orcl.demo.redis.cache.config;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.ParserConfig;
