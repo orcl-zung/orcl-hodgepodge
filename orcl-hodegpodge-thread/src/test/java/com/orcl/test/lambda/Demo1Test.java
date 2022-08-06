@@ -13,8 +13,9 @@ import java.util.Comparator;
  * @since: 2022-08-05 21:57
  * @history: 2022-08-05 21:57 created by Administrator
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class Demo1Test {
-
 
     @Test
     public void test_lambda_method_pass() {

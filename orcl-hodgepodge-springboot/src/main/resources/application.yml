@@ -11,3 +11,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
+  application:
+    name: demo-spring-boot
+server:
+  port: 10000
