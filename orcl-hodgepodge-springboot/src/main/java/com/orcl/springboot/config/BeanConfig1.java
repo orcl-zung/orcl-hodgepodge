@@ -9,24 +9,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @description:
+ * @description: 测试 ConditionalOnBean 注解是否跟 bean 加载顺序有关
  * @author: Administrator
  * @since: 2022-08-06 11:29
  * @history: 2022-08-06 11:29 created by Administrator
  */
 @Configuration
 @Import({User.class, DBHelper.class})
-public class BeanConfig {
+public class BeanConfig1 {
 
-//    @Bean
-//    public Pet pet() {
-//        return new Pet("Chopper");
-//    }
-
-    @Bean("user")
-    @ConditionalOnBean(Pet.class)
-    public User user() {
-        return new User("orcl", 18);
+    @Bean
+    public Pet pet() {
+        return new Pet("Chopper");
     }
 
 }

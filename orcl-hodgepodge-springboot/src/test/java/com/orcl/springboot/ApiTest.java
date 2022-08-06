@@ -45,7 +45,7 @@ public class ApiTest {
 
     /**
      * 测试 @Import 注解
-     *  该注解可以注入 任意对象到 IoC 容器中，并且调用的是无参构造器
+     * 该注解可以注入 任意对象到 IoC 容器中，并且调用的是无参构造器
      */
     @Test
     public void test_import() {
@@ -55,6 +55,33 @@ public class ApiTest {
         }
         DBHelper bean = applicationContext.getBean(DBHelper.class);
         System.out.println(bean);
+    }
+
+    /**
+     * 测试 @Conditional 以及 子注解
+     * 该 @Conditional 注解是一个条件装配注解，主要用于限制 @Bean 注解在什么时候才生效。以指定的条件形式控制 bean 的创建
+     * 该 @Conditional 可以自定义条件进行装配或者不装配…
+     * 该 @Conditional 本身还是一个父注解，派生出大量的子注解；可以按需加载！
+     * <p>
+     * 因此在学习 SpringBoot 的时候是非常有必要学习这个注解的使用的，SpringBoot就是按需加载。
+     * <p>
+     * Conditional 注解和所有子注解首先必须依托 @Configuration 配置类注解
+     * <p>
+     * 都可以加载类或者方法上；加载类上的含义所有的方法都按照这个条件装配、加载方法上只有该方法进行条件装配。
+     * <p>
+     * 注：Conditional 注解是 Spring4.0 就有的，旗下的子注解是 SpringBoot1.0 有的。
+     * Conditional 注解应该只能用在同一个类的 Bean 加载中，同时搭配 Configuration 注解使用，此外限定某个 bean 加载的时候和代码编写顺序有关
+     */
+    @Test
+    public void test_conditional() {
+        boolean user = applicationContext.containsBean("user");
+        boolean pet = applicationContext.containsBean("pet");
+//        String[] users = applicationContext.getBeanNamesForType(User.class);
+//        for (String s : users) {
+//            System.out.println(s);
+//        }
+        System.out.println("容器中的 user 组件：" + user);
+        System.out.println("容器中的 pet 组件：" + pet);
     }
 
 }

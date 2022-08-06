@@ -12,12 +12,20 @@ public class User {
 
     private Integer age;
 
+    private Pet pet;
+
     public User() {
     }
 
     public User(String name, Integer age) {
         this.name = name;
         this.age = age;
+    }
+
+    public User(String name, Integer age, Pet pet) {
+        this.name = name;
+        this.age = age;
+        this.pet = pet;
     }
 
     public String getName() {
@@ -34,5 +42,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }
