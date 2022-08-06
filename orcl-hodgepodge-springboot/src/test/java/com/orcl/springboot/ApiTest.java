@@ -22,6 +22,12 @@ public class ApiTest {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /**
+     * 测试 @Configuration 注解：
+     * Full 模式 和 Lite 模式 （ @Configuratin 注解的 proxyBeanMethods 属性为 true 为 Full 模式， 反之则为 Lite 模式
+     * 配置类组件之间没有依赖关系 用 Lite 模式 加速容器启动过程，减少判断，Lite 模式：调用配置类里的 @Bean 注解方法会去 IoC 容器里找有没有，也就是说会返回这个 bean 的单例
+     * 配置类组件之间有依赖关系，方法会被调用得到之前的单实例组件，用 Full 模式，使用 Full 模式能够保证组件单一，并且减少内存开销。
+     */
     @Test
     public void test_configuration() {
         User u1 = applicationContext.getBean("user", User.class);
