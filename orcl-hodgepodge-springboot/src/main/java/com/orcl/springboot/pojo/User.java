@@ -12,6 +12,9 @@ public class User {
 
     private Integer age;
 
+    public User() {
+    }
+
     public User(String name, Integer age) {
         this.name = name;
         this.age = age;

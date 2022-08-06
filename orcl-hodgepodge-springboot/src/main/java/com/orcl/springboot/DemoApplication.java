@@ -1,7 +1,5 @@
 package com.orcl.springboot;
 
-import com.orcl.springboot.config.BeanConfig;
-import com.orcl.springboot.pojo.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -21,6 +19,8 @@ public class DemoApplication {
         for (String name : names) {
             System.out.println(name);
         }
+
+        System.out.println("run的具体类型是：" + run);
     }
 
 }

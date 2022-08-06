@@ -1,9 +1,11 @@
 package com.orcl.springboot.config;
 
+import ch.qos.logback.core.db.DBHelper;
 import com.orcl.springboot.pojo.Pet;
 import com.orcl.springboot.pojo.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @description:
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @history: 2022-08-06 11:29 created by Administrator
  */
 @Configuration
+@Import({User.class, DBHelper.class})
 public class BeanConfig {
 
     @Bean
