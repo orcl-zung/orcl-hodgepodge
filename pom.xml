@@ -32,6 +32,7 @@
         <module>orcl-hodgepodge-mq</module>
         <module>orcl-hodgepodge-jvm</module>
         <module>orcl-hodgepodge-springboot</module>
+        <module>orcl-hodgepodge-distributedlock</module>
     </modules>
 
     <dependencyManagement>
