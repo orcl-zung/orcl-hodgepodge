@@ -12,8 +12,8 @@ import java.util.Map;
 public class HashMapTest {
 
     public static void main(String[] args) {
-        Map<String, String> map = new HashMap<>();
-        map.put("1", "1");
+        Map<String, String> map = new HashMap<>(7);
+        map.put(null, "1");
         map.put("2", "1");
         map.put("3", "1");
     }
