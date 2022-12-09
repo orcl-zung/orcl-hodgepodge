@@ -29,11 +29,11 @@
         <module>orcl-hodgepodge-redis</module>
         <module>orcl-hodegpodge-thread</module>
         <module>orcl-hashcode</module>
-        <module>orcl-hodgepodge-mq</module>
         <module>orcl-hodgepodge-jvm</module>
         <module>orcl-hodgepodge-springboot</module>
         <module>orcl-hodgepodge-distributedlock</module>
         <module>orcl-hodgepodge-io</module>
+        <module>orcl-hodgepodge-rabbit-mq</module>
     </modules>
 
     <dependencyManagement>
