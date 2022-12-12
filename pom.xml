@@ -34,6 +34,7 @@
         <module>orcl-hodgepodge-distributedlock</module>
         <module>orcl-hodgepodge-io</module>
         <module>orcl-hodgepodge-rabbit-mq</module>
+        <module>orcl-hodgepodge-data-structure</module>
     </modules>
 
     <dependencyManagement>
