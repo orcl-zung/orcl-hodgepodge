@@ -10,7 +10,9 @@ import com.orcl.art_of_concurrency.SleepUtils;
  */
 public class Profiler {
 
-    // 第一次 get() 方法调用时会进行初始化（如果 set 方法没有调用）。每个线程都会调用一次
+    /**
+     * 第一次 get() 方法调用时会进行初始化（如果 set 方法没有调用）。每个线程都会调用一次
+     */
     private static final ThreadLocal<Long> TIME_THREADLOCAL = ThreadLocal.withInitial(System::currentTimeMillis);
 
     public static final void begin() {

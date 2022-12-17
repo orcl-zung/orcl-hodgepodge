@@ -10,21 +10,22 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchTest {
 
-    static CountDownLatch c = new CountDownLatch(2);
+    static CountDownLatch cdl = new CountDownLatch(2);
 
     public static void main(String[] args) throws Exception {
         new Thread(() -> {
             System.out.println(1);
             System.out.println(2);
-            c.countDown();
+            cdl.countDown();
+            cdl.countDown();
             try {
-                c.await();
+                cdl.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }, "CountDownLatch").start();
 
-        c.await();
+        cdl.await();
 
         System.out.println(3);
     }
