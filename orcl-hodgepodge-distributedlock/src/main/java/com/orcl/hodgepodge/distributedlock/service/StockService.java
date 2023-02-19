@@ -21,24 +21,32 @@ import java.util.concurrent.locks.ReentrantLock;
 //@Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class StockService {
 
-//    private Stock stock = new Stock();
+    private Stock stock = new Stock(1L, "pvp_001", "北京仓", 5000);
 
     @Autowired
     private StockMapper stockMapper;
 
     private ReentrantLock lock = new ReentrantLock();
 
-    //    @Transactional(rollbackFor = Exception.class)
+
+    public void firstDeduct() {
+        stock.setCount(stock.getCount() - 1);
+        System.out.println("剩余库存：" + stock.getCount());
+    }
+
+    // --server.port=10011
+//    @Transactional(rollbackFor = Exception.class)
     public void deduct() {
 
         lock.lock();
         try {
-            Stock stock = stockMapper.selectOne(new QueryWrapper<Stock>().eq("product_code", "1001"));
-            Integer count;
-            if (stock != null && (count = stock.getCount()) > 0) {
-                stock.setCount(--count);
-                stockMapper.updateById(stock);
-            }
+            stockMapper.updateStock("1001", 1);
+//            Stock stock = stockMapper.selectOne(new QueryWrapper<Stock>().eq("product_code", "1001"));
+//            Integer count;
+//            if (stock != null && (count = stock.getCount()) > 0) {
+//                stock.setCount(--count);
+//                stockMapper.updateById(stock);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
