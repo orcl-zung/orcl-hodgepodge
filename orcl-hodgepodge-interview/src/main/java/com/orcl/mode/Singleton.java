@@ -1,5 +1,10 @@
 package com.orcl.mode;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
+import java.util.concurrent.*;
+
 /**
  * @description: 单例模式
  * @author: orcl
@@ -7,6 +12,11 @@ package com.orcl.mode;
  * @history: 2023-02-19 21:27 created by orcl
  */
 public class Singleton {
+
+    public static void main(String[] args) {
+        Thread thread = new Thread();
+        thread.start();
+    }
 
     /**
      * 饿汉式：

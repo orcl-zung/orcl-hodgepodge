@@ -1,4 +1,4 @@
-package com.orcl.interview;
+package com.orcl.argorithm;
 
 /**
  * @description:
