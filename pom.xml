@@ -36,6 +36,8 @@
         <module>orcl-hodgepodge-rabbit-mq</module>
         <module>orcl-hodgepodge-data-structure</module>
         <module>orcl-hodgepodge-interview</module>
+        <module>orcl-hodgepodge-on-working</module>
+        <module>orcl-hodgepodge-on-working</module>
     </modules>
 
     <dependencyManagement>
