@@ -38,6 +38,7 @@
         <module>orcl-hodgepodge-interview</module>
         <module>orcl-hodgepodge-on-working</module>
         <module>orcl-hodgepodge-on-working</module>
+        <module>orcl-hodgepodge-mybatis</module>
     </modules>
 
     <dependencyManagement>
