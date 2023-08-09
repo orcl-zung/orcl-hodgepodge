@@ -1,5 +1,6 @@
 package com.orcl.thread;
 
+import com.orcl.ApplicationTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,9 +15,7 @@ import java.util.List;
  * @since: 2023-03-07 15:24
  * @history: 2023-03-07 15:24 created by orcl
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SortThread {
+public class SortThread extends ApplicationTest {
 
     @Test
     public void test_sort1() {
