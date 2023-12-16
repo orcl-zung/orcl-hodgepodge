@@ -25,6 +25,9 @@ public class TransactionalEventTest extends ApplicationTest {
     @Resource
     private PlatformTransactionManager platformTransactionManager;
 
+    @Resource
+    private PlatformTransactionManager transactionManager;
+
     @Test
     public void test_TransactionEvent() {
         service.testTransactionalEvent();
