@@ -6,7 +6,7 @@ spring:
     name: orcl-hodgepodge-redis
   redis:
     host: 127.0.0.1
-    port: 49153
+    port: 6379
     password: redispw
 
   lock:

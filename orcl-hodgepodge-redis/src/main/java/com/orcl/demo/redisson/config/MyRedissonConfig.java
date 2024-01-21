@@ -15,7 +15,7 @@ import java.io.IOException;
  * @since: 2022-08-03 17:15
  * @history: 2022-08-03 17:15 created by orcl
  */
-@Configuration
+//@Configuration
 public class MyRedissonConfig {
 
     @Value("${spring.redis.host}")
