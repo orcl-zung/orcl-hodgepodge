@@ -39,6 +39,7 @@
         <module>orcl-hodgepodge-on-working</module>
         <module>orcl-hodgepodge-on-working</module>
         <module>orcl-hodgepodge-mybatis</module>
+        <module>1ea-hodgepodge-design-pattern</module>
     </modules>
 
     <dependencyManagement>
