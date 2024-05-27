@@ -1,17 +1,8 @@
-package com.orcl.design_pattern;
+package com.orcl.design_pattern.composite;
 
-import com.orcl.design_pattern.composite.Box;
-import com.orcl.design_pattern.composite.Product;
-import com.orcl.design_pattern.composite.VerificationCard;
+import com.orcl.design_pattern.ApplicationTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author lea
@@ -19,10 +10,8 @@ import java.util.List;
  * @history 2024-05-26 20:47 created by lea
  * @since 2024-05-26 20:47
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
 @Slf4j
-public class ApiTest {
+public class CompositeTest extends ApplicationTest {
 
     @Test
     public void test() {
